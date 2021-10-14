@@ -16,6 +16,7 @@ const App = () => {
         <Route path='/cart' component={CartPage} />
         <Route path='/checkout' component={CheckoutPage} />
         <Route path='/:productName' exact component={ProductPage} />
+        <Redirect to='/mall'></Redirect>
       </Switch>
     </BrowserRouter>
   )
