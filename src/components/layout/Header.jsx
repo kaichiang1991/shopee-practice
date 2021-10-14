@@ -1,15 +1,19 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const StyledHeader = styled.header`
   height: 200px;
   background-color: #D0061A;
-  position: ${props => props.fixed? 'fixed': 'relative'};
+
+  ${props => props.fixed && css`
+    position: fixed;
+    width: 100%;
+  `}
 `
 
-const Header = ()=>{
+const Header = ({fixedHeader})=>{
   return (
-    <StyledHeader>
+    <StyledHeader fixed={fixedHeader}>
       Header
     </StyledHeader>
   )
