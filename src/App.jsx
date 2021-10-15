@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import ProductCollectionPage from './pages/ProductCollectionPage'
 import ProductPage from './pages/ProductPage'
 import CheckoutPage from './pages/CheckoutPage'
+import 'antd/dist/antd.css'
 
 const App = () => {
   return (
