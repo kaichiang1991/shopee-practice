@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import Container from '../common/Container'
 
 const StyledHeader = styled.header`
   height: 200px;
@@ -14,7 +15,9 @@ const StyledHeader = styled.header`
 const Header = ({fixedHeader})=>{
   return (
     <StyledHeader fixed={fixedHeader}>
-      Header
+      <Container>
+        This is Header
+      </Container>
     </StyledHeader>
   )
 }

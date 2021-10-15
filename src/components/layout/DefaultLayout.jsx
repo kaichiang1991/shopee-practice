@@ -1,12 +1,16 @@
 import React from 'react'
 import Header from './Header'
+import Footer from './Footer'
+import Container from '../common/Container'
 
 const DefaultLayout = ({fixedHeader, children}) => {
   return (
     <>
       <Header fixedHeader={fixedHeader}/>
-      {children}
-      <footer>Footer</footer>
+      <Container>
+        {children}
+      </Container>
+      <Footer />
     </>
   )
 }
