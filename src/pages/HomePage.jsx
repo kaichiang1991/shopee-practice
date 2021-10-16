@@ -1,13 +1,104 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import DefaultLayout from '../components/layout/DefaultLayout'
 import ClearFix from '../components/common/ClearFix'
+import styled from 'styled-components'
+import { Carousel } from 'antd'
+import banner1 from '../img/banner/banner1.jpg'
+import banner2 from '../img/banner/banner2.jpg'
+import banner3 from '../img/banner/banner3.jpeg'
+
+const StyledBannerSection = styled.div `
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+`
+const CarouselContainer = styled.div `
+  width: 100%;
+  padding: 2px;
+
+  @media(min-width: 769px){
+    width: 66.67%;
+  }
+`
+
+const BannerSectionContainer = styled.div `
+  width: 100%;
+  padding: 2px;
+
+  @media(min-width: 769px){
+    width: 33.33%;
+  }
+`
+
+const BannerImageContainer = styled.div `
+  display: inline-block;
+  width: 50%;
+
+  :not(:last-child){
+    padding-bottom: 0;
+    padding-right: 2px;
+  }
+
+  @media(min-width: 769px){
+    display: block;
+    width: 100%;
+    
+    :not(:last-child){
+      padding-bottom: 2px;
+      padding-right: 0;
+    }
+  }
+`
+
+const StyledBannerFeatureContainer = styled.div `
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+`
+
+const StyledBannerColumn = styled.div `
+  width: 33.33%;
+  text-align: center;
+  padding: 4px 0;
+`
+
+const Image = styled.div `
+  height: ${props => props.height + 'px'};
+  background-image: ${props => `url(${props.url})`};
+  background-position: center;
+  background-size: cover;
+`
 
 const HomePage = () => {
   return (
     <DefaultLayout fixedHeader>
       <ClearFix />
-      <div>Home Page</div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quibusdam itaque mollitia laborum eligendi laudantium officiis quidem amet at ipsa voluptates, fugiat veniam voluptas recusandae ad odio facere, distinctio eaque. Labore molestias, voluptatum odio earum iure nobis praesentium necessitatibus harum blanditiis facilis quibusdam maxime repellat nihil distinctio, temporibus repudiandae rerum placeat unde! Ex perferendis, sunt voluptatibus asperiores odio quia praesentium maxime, nam doloribus, vero quos quas. Consequuntur sint placeat similique vitae quis veniam aliquam saepe repellendus, odit delectus tempore consectetur numquam, temporibus dolor, veritatis qui perferendis optio fugit aliquid laborum. Dolorem nam, perferendis ratione harum laudantium rem tempore quo omnis, accusantium architecto placeat nemo error at officia. Repellat reprehenderit tempora esse, eos et ducimus alias voluptas magni minus harum tempore doloremque quibusdam, laudantium praesentium earum dolore recusandae expedita magnam nulla! Qui blanditiis, tempora a alias esse natus explicabo eius repellat, dignissimos voluptatem nihil, minus delectus cumque nemo sit nam consequatur facere consectetur iusto. Inventore ipsa iusto error adipisci dolorem repellat alias sed ut rem nobis corrupti quod neque cum unde iure, nisi consequuntur laudantium assumenda praesentium non tempora at? Dignissimos, accusantium sit omnis ex quae molestiae adipisci modi qui cumque deserunt quisquam ullam repudiandae? In optio ea iure suscipit sapiente, soluta vitae consectetur quaerat voluptate, ut, tempora ipsa aperiam. Sequi dolorum, at non iusto voluptatem optio! Iure possimus alias laborum veritatis consequuntur vitae quasi hic deserunt quae tempore consectetur tempora non magnam error optio, eum cupiditate voluptatum ducimus. Ipsa harum officiis unde itaque quis, sunt tenetur cumque? Fugiat quo ducimus in, pariatur voluptas aspernatur ut commodi sunt harum autem sapiente, sint molestias cupiditate, deleniti adipisci. Fuga eum ducimus error id debitis saepe rerum, minus ea rem ratione iste harum alias. Aliquid sunt eius optio magnam minus, cum minima, eaque atque adipisci perferendis magni aut corrupti explicabo iste earum quae dicta consequuntur consectetur, labore obcaecati! Odio vel perferendis architecto itaque eaque iste nam voluptas inventore, corrupti at velit doloremque natus necessitatibus blanditiis quod, reiciendis fuga ratione suscipit explicabo aliquid! Adipisci suscipit, est quae in reiciendis, nostrum inventore magnam illum laborum assumenda eum voluptatem reprehenderit, dolore a qui deserunt distinctio corporis magni quod. Soluta nostrum omnis odit temporibus sunt quas maiores, quo id velit sit consectetur aspernatur, enim nam minus odio magni ipsam dignissimos, at nihil facere obcaecati. Ab voluptates ullam, quisquam ipsum optio culpa repellat, quidem alias velit impedit assumenda sed sunt consequatur eum blanditiis. Tenetur enim explicabo ipsam rerum magnam quas beatae eos voluptas molestias reprehenderit cupiditate sit, consectetur necessitatibus earum consequuntur minus nesciunt. Impedit placeat natus quidem repudiandae aliquid nihil dolorem, ex mollitia laborum corporis eveniet fuga perferendis beatae voluptas, quia maiores. Officiis pariatur unde excepturi eveniet temporibus asperiores, illum iure ad sunt mollitia ut corrupti aliquam sed provident, quaerat quas alias similique saepe sapiente nulla ullam accusantium laborum! Veritatis est id sit amet qui asperiores dolores incidunt deserunt ab pariatur vero quas omnis, tempore placeat laborum repellat explicabo consequatur nihil dolore animi quae architecto voluptas adipisci provident. Incidunt, delectus qui. Sapiente dignissimos enim delectus maxime hic rerum eum!</p>
+      <StyledBannerSection>
+        <CarouselContainer>
+          <Carousel  arrows>
+            <Link to='p1'><Image height={300} url={banner1}/></Link>
+            <Link to='p2'><Image height={300} url={banner2}/></Link>
+            <Link to='p3'><Image height={300} url={banner3}/></Link>
+          </Carousel>
+        </CarouselContainer>
+        <BannerSectionContainer>
+          <BannerImageContainer>
+            <Link to='p4'><Image height={149} url={banner1}/></Link>
+          </BannerImageContainer>
+          <BannerImageContainer >
+            <Link to='p5'><Image height={149} url={banner2}/></Link>
+          </BannerImageContainer>
+        </BannerSectionContainer>
+        <StyledBannerFeatureContainer>
+          <StyledBannerColumn>15天鑑賞期</StyledBannerColumn>
+          <StyledBannerColumn>退貨無負擔</StyledBannerColumn>
+          <StyledBannerColumn>假一賠二</StyledBannerColumn>
+        </StyledBannerFeatureContainer>
+      </StyledBannerSection>
+      <Link to='advertise'><Image height={200} url={banner3}/></Link>
     </DefaultLayout>
   )
 }

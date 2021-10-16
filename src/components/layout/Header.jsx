@@ -19,6 +19,7 @@ const StyledHeader = styled.header`
   ${props => props.fixed && css`
     position: fixed;
     width: 100%;
+    z-index: 1;
   `}
 `
 
