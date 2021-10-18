@@ -4,9 +4,12 @@ import DefaultLayout from '../components/layout/DefaultLayout'
 import ClearFix from '../components/common/ClearFix'
 import styled from 'styled-components'
 import { Carousel } from 'antd'
+import Image from '../components/common/Image'
 import banner1 from '../img/banner/banner1.jpg'
 import banner2 from '../img/banner/banner2.jpg'
 import banner3 from '../img/banner/banner3.jpeg'
+import ProductCard from '../components/product/ProductCard'
+import product1 from '../img/product/product1.png'
 
 const StyledBannerSection = styled.div `
   display: flex;
@@ -65,11 +68,32 @@ const StyledBannerColumn = styled.div `
   padding: 4px 0;
 `
 
-const Image = styled.div `
-  height: ${props => props.height + 'px'};
-  background-image: ${props => `url(${props.url})`};
-  background-position: center;
-  background-size: cover;
+const StyledCustomerContainer = styled.div `
+  display: flex;
+  flex-wrap: wrap;
+  margin: 48px -4px;
+
+  .product-card{
+    width: 100%;
+    padding: 4px;
+  }
+`
+
+const ProductCardContainer = styled.div `
+  width: 100%;
+  padding: 4px;
+
+  @media (min-width: 576px){
+    width: 33.333%;
+  }
+
+  @media (min-width: 769px){
+    width: 20%;
+  }
+
+  .ant-card-body{
+    padding: 24px 12px;
+  }
 `
 
 const HomePage = () => {
@@ -99,6 +123,38 @@ const HomePage = () => {
         </StyledBannerFeatureContainer>
       </StyledBannerSection>
       <Link to='advertise'><Image height={200} url={banner3}/></Link>
+      <StyledCustomerContainer>
+        <ProductCardContainer>
+          <Link to='/'>
+            <ProductCard title={`產品1`} coverUrl={product1} listPrice={300} salePrice={150} favorite rating={0} saleCount={1.8}/>
+          </ Link>
+        </ ProductCardContainer>
+        <ProductCardContainer>
+          <Link to='/'>
+            <ProductCard title={`產品2`} coverUrl={banner1} listPrice={300} rating={1} saleCount={1.8}/>
+          </ Link>
+        </ ProductCardContainer>
+        <ProductCardContainer>
+          <Link to='/'>
+            <ProductCard title={`產品3`} coverUrl={banner2} listPrice={300} salePrice={150} rating={2} saleCount={215}/>
+          </ Link>
+        </ ProductCardContainer>
+        <ProductCardContainer>
+          <Link to='/'>
+            <ProductCard title={`產品4`} coverUrl={product1} listPrice={300} salePrice={150} rating={3} saleCount={1.8}/>
+          </ Link>
+        </ ProductCardContainer>
+        <ProductCardContainer>
+          <Link to='/'>
+            <ProductCard title={`產品5`} coverUrl={product1} listPrice={30000} salePrice={15000} rating={4} saleCount={1.8}/>
+          </ Link>
+        </ ProductCardContainer>
+        <ProductCardContainer>
+          <Link to='/'>
+            <ProductCard title={`產品6`} coverUrl={product1} listPrice={30000} rating={5} saleCount={1.8} />
+          </ Link>
+        </ ProductCardContainer>
+      </StyledCustomerContainer>
     </DefaultLayout>
   )
 }

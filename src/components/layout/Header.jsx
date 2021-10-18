@@ -92,9 +92,9 @@ const Header = ({fixedHeader})=>{
             <Link to="/blog">蝦皮輯部落客</Link>
           </StyledNavigator>
           <StyledToolBar>
-            <Link>通知總覽</Link>
-            <Link>幫助中心</Link>
-            <Link>帳號</Link>
+            <Link to="/">通知總覽</Link>
+            <Link to="/">幫助中心</Link>
+            <Link to="/">帳號</Link>
           </StyledToolBar>
         </StyledHeaderSection>
         <StyledHeaderSection>
