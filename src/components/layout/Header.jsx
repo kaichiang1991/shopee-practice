@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import Container from '../common/Container'
@@ -9,6 +9,7 @@ import {
 import {
   ShoppingCartOutlined
 } from '@ant-design/icons'
+import AuthContext from '../auth/AuthContext'
 
 const {Search} = Input
 
@@ -39,11 +40,12 @@ const StyledNavigator = styled.div `
 `
 
 const StyledToolBar = styled.div `
-  a{
+  a, span{
     padding: 0 8px;
     text-decoration: none;
     color: #fff;
     border-right: 2px solid hsla(0,0%,100%,.22);
+    cursor: pointer;
   }
 `
 
@@ -81,6 +83,8 @@ const StyledSearchSection = styled.div `
 `
 
 const Header = ({fixedHeader})=>{
+  const {isAuthenticated, username, logout} = useContext(AuthContext)
+
   return (
     <StyledHeader fixed={fixedHeader}>
       <Container>
@@ -94,7 +98,14 @@ const Header = ({fixedHeader})=>{
           <StyledToolBar>
             <Link to="/">通知總覽</Link>
             <Link to="/">幫助中心</Link>
-            <Link to="/">帳號</Link>
+            {
+              isAuthenticated? 
+              <>
+                <span>{username}</span>
+                <span onClick={logout}>登出</span>
+              </>:
+              <Link to="/login">登入/註冊</Link>
+            }
           </StyledToolBar>
         </StyledHeaderSection>
         <StyledHeaderSection>

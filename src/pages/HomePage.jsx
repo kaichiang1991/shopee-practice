@@ -10,6 +10,8 @@ import banner2 from '../img/banner/banner2.jpg'
 import banner3 from '../img/banner/banner3.jpeg'
 import ProductCard from '../components/product/ProductCard'
 import product1 from '../img/product/product1.png'
+import { useContext } from 'react'
+import AuthContext from '../components/auth/AuthContext'
 
 const StyledBannerSection = styled.div `
   display: flex;
@@ -97,9 +99,12 @@ const ProductCardContainer = styled.div `
 `
 
 const HomePage = () => {
+  const {isAuthenticated, username} = useContext(AuthContext)
+
   return (
     <DefaultLayout fixedHeader>
       <ClearFix />
+      {isAuthenticated? <span>Welcome back {username}</span>: null}
       <StyledBannerSection>
         <CarouselContainer>
           <Carousel  arrows>

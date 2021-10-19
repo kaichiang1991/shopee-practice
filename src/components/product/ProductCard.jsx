@@ -1,6 +1,7 @@
 import {Card} from 'antd'
 import styled, { css } from 'styled-components'
 import {HeartOutlined, HeartFilled, StarOutlined, StarFilled} from '@ant-design/icons'
+import { nanoid } from 'nanoid'
 
 const SquareImage = styled.div `
   padding-top: 100%;              // 長寬相等
@@ -55,7 +56,7 @@ const ProductCard = ({coverUrl, title, listPrice, salePrice, favorite, rating, s
           <StyledRatingContainer>
           {/* 評分 ＋ 購買人數 */}
             {
-              Array(5).fill(1).map((_, idx) => idx < rating? <StarFilled />: <StarOutlined />)
+              Array(5).fill(1).map((_, idx) => idx < rating? <StarFilled key={nanoid()}/>: <StarOutlined key={nanoid()}/>)
             }
             <span> 已售出{saleCount}萬</span>
           </StyledRatingContainer>
